@@ -1,0 +1,14 @@
+.standard-menu {
+  font-family: 'Fira Sans';
+  a {
+    font-weight: 300;
+    text-decoration: none;
+    color: black;
+  }
+  a:hover, .active {
+    font-weight: 300;
+    font-size: 105%;
+    text-decoration: none;
+    color: green;
+  }
+}
