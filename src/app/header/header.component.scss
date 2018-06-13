@@ -1,4 +1,18 @@
+.header {
+  margin-bottom: 20px;
+}
+
 .brand-name {
-  font-family: 'Fira Sans Condense';
-  font-weight: 500;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 30pt;
+  margin: 0;
+  letter-spacing: calc(40em / 1000);
+}
+
+.author {
+  font-family: 'Sacramento', cursive;
+  font-weight: normal;
+  margin: 0;
 }

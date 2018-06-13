@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/about-me', pathMatch: 'full' },
   { path: 'about-me', component: AboutMeComponent},
   { path: 'projects', component: ProjectsComponent},
-  { path: 'projects/:name', component: ProjectComponent},
+  { path: 'projects/:id', component: ProjectComponent },
   { path: 'contact', component: ContactComponent},
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' },

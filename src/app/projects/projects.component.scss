@@ -1,0 +1,39 @@
+.project-container {
+  align-items: flex-end;
+}
+
+.project-item {
+  width: 100%;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.project-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.project-name {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  width: 100%;
+  margin: 0;
+}
+
+.hashtag {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  margin: 0;
+}
+
+.main-picture {
+  width: 100%;
+  padding-top: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

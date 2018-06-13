@@ -5,6 +5,9 @@ export class Project {
   createdAt: Date;
   updatedAt: Date;
   mainPictureURL: string;
-  picturesURL: string[];
+  pictureCategories: Array<{
+    name: string;
+    picturesURLs: string[];
+  }>;
   tags: string[];
 }
