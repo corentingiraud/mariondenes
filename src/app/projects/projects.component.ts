@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { Project } from '../_models/Project';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  projects: Observable<any[]>;
+
+  constructor(db: AngularFirestore) {
+    this.projects = db.collection('projects').valueChanges();
+  }
 
   ngOnInit() {
   }
-
 }

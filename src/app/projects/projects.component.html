@@ -1,3 +1,5 @@
-<p>
-  projects works!
-</p>
+<ul>
+  <li *ngFor="let project of projects | async">
+    {{project.name}}
+  </li>
+</ul>
