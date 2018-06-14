@@ -1,25 +1,20 @@
-<div id="mobile-menu" fxShow fxHide.gt-xs="true">
-  <ul>
-    <li>
-      <a routerLink="/about-me">A propos</a>
-    </li>
-    <li>
-      <a routerLink="/projects">Mes projets</a>
-    </li>
-    <li>
-      <a routerLink="/contact">Contact</a>
-    </li>
-  </ul>
-</div>
-<div class="standard-menu" fxHide fxShow.gt-xs="true" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+<div ngClass="standard-menu" [ngClass.xs]="{'standard-menu':false, 'mobile-menu':true}" 
+  fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" fxLayoutAlign.xs="center center"
+  fxLayoutGap="20px" fxLayoutGap.xs="20px" [@fadeIn]="fadeInState">
   <div>
-    <a routerLink="/about-me" routerLinkActive="active">À PROPOS</a>
+    <a routerLink="/about-me" routerLinkActive="active" (click)="toogle()">À PROPOS</a>
   </div>
   <div>
-    <a routerLink="/projects" routerLinkActive="active">MES PROJETS</a>
+    <a routerLink="/projects" routerLinkActive="active" (click)="toogle()">MES PROJETS</a>
   </div>
   <div>
-    <a routerLink="/contact" routerLinkActive="active">CONTACT</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="toogle()">CONTACT</a>
   </div>
 </div>
-
+<div fxHide fxShow.xs="true">
+  <button class="hamburger hamburger--collapse" [ngClass]="{'is-active': isActive}" (click)="toogle()" type="button">
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+</div>
