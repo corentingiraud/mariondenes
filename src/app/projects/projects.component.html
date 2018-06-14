@@ -1,3 +1,4 @@
+<div class="spinner" *ngIf="projects.length === 0"></div>
 <div class="project-container" fxLayout="row wrap" fxLayoutGap="5% grid">
   <div class="project-item" *ngFor="let project of projects" 
     fxFlex="calc((100% - 10%) / 3)" fxFlex.lt-sm="calc((100% - 5%) / 2)">
