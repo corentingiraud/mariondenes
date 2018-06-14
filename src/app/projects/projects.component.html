@@ -1,8 +1,15 @@
-<div class="spinner" *ngIf="projects.length === 0"></div>
+<div class="spinner" *ngIf="projects.length === 0">
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+</div>
 <div class="project-container" fxLayout="row wrap" fxLayoutGap="5% grid">
   <div class="project-item" *ngFor="let project of projects" 
     fxFlex="calc((100% - 10%) / 3)" fxFlex.lt-sm="calc((100% - 5%) / 2)">
-    <div [style.visibility]="project.id ? 'visible' : 'hidden'" class="link" fxLayout="column" fxLayoutAlign="center center" [routerLink]="['/projects', project.name]">
+    <div [style.visibility]="project.id ? 'visible' : 'hidden'" class="link" fxLayout="column" 
+      fxLayoutAlign="center center" (click)="navigateToProject(project)">
       <div class="project-title" fxLayout="column wrap" fxLayoutAlign="center center" >
         <h4 class="project-name">{{project.name}}</h4>
         <h4 class="hashtag" *ngIf="project.tags">#{{ project.tags[0] }}</h4>

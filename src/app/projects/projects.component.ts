@@ -62,6 +62,6 @@ export class ProjectsComponent implements OnInit {
   }
 
   navigateToProject(project: Project): void {
-    this.router.navigate(['/projects', project.name]);
+    this.router.navigate(['projects', project.name]);
   }
 }

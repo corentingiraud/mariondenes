@@ -13,15 +13,15 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
       state('inactive', style({opacity: 0})),
       state('none', style({opacity: 0})),
       state('active-desktop', style({opacity: 1})),
-      transition('inactive => active-mobile', animate(220, keyframes([
+      transition('inactive => active-mobile', animate(80, keyframes([
         style({opacity: 0, offset: 0}),
         style({opacity: 0.95, offset: 1}),
       ]))),
-      transition('none => active-mobile', animate(220, keyframes([
+      transition('none => active-mobile', animate(80, keyframes([
         style({opacity: 0, offset: 0}),
         style({opacity: 0.95, offset: 1}),
       ]))),
-      transition('active-mobile => inactive', animate(220, keyframes([
+      transition('active-mobile => inactive', animate(80, keyframes([
         style({opacity: 0.95, offset: 0}),
         style({opacity: 0, offset: 1}),
       ]))),
