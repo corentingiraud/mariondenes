@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition, keyframes } from '@angular/animations';
 import { WindowScrolling } from '../_services/windows.service';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
@@ -9,9 +9,9 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
   styleUrls: ['./menu.component.scss'],
   animations: [
     trigger('fadeIn', [
-      state('active-mobile', style({opacity: 0.95})),
-      state('inactive', style({opacity: 0})),
-      state('none', style({opacity: 0})),
+      state('active-mobile', style([{opacity: 0.95}, {'z-index': 0}])),
+      state('inactive', style([{opacity: 0}, {'z-index': -1}])),
+      state('none', style([{opacity: 0}])),
       state('active-desktop', style({opacity: 1})),
       transition('inactive => active-mobile', animate(80, keyframes([
         style({opacity: 0, offset: 0}),
@@ -31,10 +31,14 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 export class MenuComponent implements OnInit {
 
   isActive: Boolean = false;
-  fadeInState: string ;
+  fadeInState: string;
 
   constructor(private windowScrolling: WindowScrolling, private media: ObservableMedia) {
-    media.subscribe((change: MediaChange) => {
+  }
+
+  ngOnInit() {
+    this.fadeInState = this.media.isActive('xs') ? 'inactive' : 'active-desktop';
+    this.media.subscribe((change: MediaChange) => {
       if (change.mqAlias === 'xs') {
         this.isActive = false;
         this.fadeInState = 'none';
@@ -44,10 +48,6 @@ export class MenuComponent implements OnInit {
         this.fadeInState = 'active-desktop';
       }
     });
-  }
-
-  ngOnInit() {
-    this.fadeInState = this.media.isActive('xs') ? 'inactive' : 'active-desktop';
   }
 
   toogle() {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Project } from '../_models/Project';
+import { Project } from '../../_models/Project';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
@@ -8,25 +8,34 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  templateUrl: './projects-explorer.component.html',
+  styleUrls: ['./projects-explorer.component.scss']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsExplorerComponent implements OnInit {
 
   projectsCollection: AngularFirestoreCollection<Project>;
   projects$: Observable<Project[]>;
   projects: Project[] = new Array<Project>();
+
+  counter = 0;
 
   constructor(afs: AngularFirestore, media: ObservableMedia, private router: Router) {
     media.subscribe((change: MediaChange) => {
       if (change.mqAlias === 'xs' && this.projects) {
         if (this.projects.length % 2 !== 0) {
           this.projects.push(new Project);
+          this.counter++;
+        }
+        console.log(this.counter);
+        if (this.counter === 2) {
+          this.projects = this.projects.slice(0, this.projects.length - 2);
+          this.counter = this.counter - 2;
         }
       } else {
-        if (this.projects.length % 2 !== 0) {
-          for (let i = 0; i < this.projects.length % 2; i++) {
+        if (this.projects.length % 3 !== 0) {
+          for (let i = 0; i < this.projects.length % 3; i++) {
             this.projects.push(new Project);
+            this.counter++;
           }
         }
       }
@@ -47,11 +56,13 @@ export class ProjectsComponent implements OnInit {
       if (media.isActive('xs')) {
         if (this.projects.length % 2 !== 0) {
           this.projects.push(new Project);
+          this.counter++;
         }
       } else {
-        if (this.projects.length % 2 !== 0) {
-          for (let i = 0; i < this.projects.length % 2; i++) {
+        if (this.projects.length % 3 !== 0) {
+          for (let i = 0; i < this.projects.length % 3; i++) {
             this.projects.push(new Project);
+            this.counter++;
           }
         }
       }
@@ -62,6 +73,6 @@ export class ProjectsComponent implements OnInit {
   }
 
   navigateToProject(project: Project): void {
-    this.router.navigate(['projects', project.name]);
+    this.router.navigate(['/projects' , project.id]);
   }
 }

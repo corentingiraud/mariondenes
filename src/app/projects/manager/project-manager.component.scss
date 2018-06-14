@@ -1,0 +1,23 @@
+@import "./src/variables.scss";
+
+.list-container {
+  width: 100%;
+  max-width: $max-width;
+}
+
+.list-title {
+  font-family: 'Sacramento', cursive;
+  font-weight: normal;
+  font-size: 3em;
+  margin: 0;
+}
+
+.project-container {
+  border-bottom: #000000 solid 1px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.project-container:last-child {
+  border: none;
+}

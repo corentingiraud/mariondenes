@@ -1,0 +1,19 @@
+<div fxLayoutAlign="center center" fxLayout="column">
+  <div class="list-container">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <h2 class="list-title">Liste des projets</h2>
+      <div fxFlex></div>
+      <a routerLink="/admin/projects/new"><button>AJOUTER</button></a>
+    </div>
+    <div fxLayout="column">
+      <div class="project-container" *ngFor="let project of projects; let i = index" fxLayout="row">
+        <span fxFlex>{{ i + 1 }}. {{ project.name }}</span>
+        <div fxLayout="row" fxLayoutGap="20px">
+          <button (click)="edit(project)">EDIT</button>
+          <button (click)="delete(project)">DELETE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-spinner *ngIf="projects.length === 0"></app-spinner>

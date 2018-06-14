@@ -1,0 +1,13 @@
+@import "./src/variables.scss";
+
+.form-container {
+  width: 100%;
+  max-width: $max-width;
+}
+
+.title {
+  font-family: 'Sacramento', cursive;
+  font-weight: normal;
+  font-size: 3em;
+  margin: 0;
+}

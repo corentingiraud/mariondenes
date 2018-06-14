@@ -1,0 +1,20 @@
+<div fxLayout="row" fxLayoutGap="20px" *ngIf="(project$ | async) as project; else loading">
+  <div fxFlex="60%" fxLayout="column" fxLayoutGap="10px">
+    <div>
+      Image 1
+    </div>
+    <div>
+      Image 2
+    </div>
+  </div>
+  <div fxFlex="40%" fxLayout="column" fxLayoutAlign="center end" fxLayoutGap="10px">
+    <h2 class="project-title">{{ project.name }}</h2>
+    <div>
+      {{ project.description }}
+    </div>
+  </div>
+</div>
+  
+<ng-template #loading>
+    <app-spinner></app-spinner>
+</ng-template>

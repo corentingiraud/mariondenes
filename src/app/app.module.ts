@@ -8,6 +8,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,11 +16,18 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { AboutMeComponent } from './about-me/about-me.component';
-import { ProjectsComponent } from './projects/projects.component';
+import { ProjectsExplorerComponent } from './projects/explorer/projects-explorer.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ProjectComponent } from './project/project.component';
+import { ProjectViewComponent } from './projects/view/project-view.component';
 import { WindowScrolling } from './_services/windows.service';
+import { ProjectNewComponent } from './projects/new/project-new.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { ProjectEditComponent } from './projects/edit/project-edit.component';
+import { ProjectManagerComponent } from './projects/manager/project-manager.component';
+import { LoginComponent } from './login/login.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ContactsListComponent } from './contacts-list/contacts-list.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +36,17 @@ import { WindowScrolling } from './_services/windows.service';
     FooterComponent,
     HeaderComponent,
     AboutMeComponent,
-    ProjectsComponent,
+    ProjectsExplorerComponent,
     ContactComponent,
     NotFoundComponent,
-    ProjectComponent
+    ProjectViewComponent,
+    ProjectNewComponent,
+    SpinnerComponent,
+    ProjectEditComponent,
+    ProjectManagerComponent,
+    LoginComponent,
+    AdminDashboardComponent,
+    ContactsListComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +56,9 @@ import { WindowScrolling } from './_services/windows.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     WindowScrolling,

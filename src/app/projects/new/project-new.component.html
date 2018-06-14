@@ -1,0 +1,14 @@
+<form (ngSubmit)="addProject()" [formGroup]="projectForm">
+  <div fxLayoutAlign="center center">
+    <div class="form-container">
+      <div fxLayout="column" fxLayoutGap="10px">
+        <h2 class="title">Nouveau projet</h2>
+        <input fxFlexFill type="text" placeholder="Nom du projet" formControlName="name">
+        <textarea fxFlexFill placeholder="Description du projet" formControlName="description"></textarea>
+        <div fxLayoutAlign="center">
+          <button fxFlex="120px" type="submit" [disabled]="!projectForm.valid">Envoyer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
