@@ -10,4 +10,8 @@ export class Project {
     picturesURLs: string[];
   }>;
   tags: string[];
+
+  constructor(values: Object = {}) {
+    Object.assign(this, values);
+  }
 }

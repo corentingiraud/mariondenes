@@ -3,8 +3,8 @@
     <div class="form-container">
       <div fxLayout="column" fxLayoutGap="10px">
         <h2 class="title">Espace Admin</h2>
-        <input fxFlexFill type="text" placeholder="Email" formControlName="email">
-        <input fxFlexFill type="password" placeholder="Mot de passe" formControlName="password">
+        <input type="text" placeholder="Email" formControlName="email">
+        <input type="password" placeholder="Mot de passe" formControlName="password">
         <div fxLayoutAlign="center">
           <button fxFlex="120px" type="submit" [disabled]="!loginForm.valid">Se connecter</button>
         </div>
