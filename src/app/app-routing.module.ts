@@ -11,6 +11,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ProjectManagerComponent } from './projects/manager/project-manager.component';
 import { ProjectEditComponent } from './projects/edit/project-edit.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/about-me', pathMatch: 'full' },
@@ -21,12 +22,12 @@ const routes: Routes = [
 
 // Admin page
 
-  { path: 'admin', component: AdminDashboardComponent},
   { path: 'admin/login', component: LoginComponent},
-  { path: 'admin/contacts', component: ContactsListComponent},
-  { path: 'admin/projects', component: ProjectManagerComponent},
-  { path: 'admin/projects/new', component: ProjectNewComponent},
-  { path: 'admin/projects/:id', component: ProjectEditComponent},
+  { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard]},
+  { path: 'admin/contacts', component: ContactsListComponent, canActivate: [AuthGuard]},
+  { path: 'admin/projects', component: ProjectManagerComponent, canActivate: [AuthGuard]},
+  { path: 'admin/projects/new', component: ProjectNewComponent },
+  { path: 'admin/projects/:id', component: ProjectEditComponent, canActivate: [AuthGuard]},
 
 // Other page
 

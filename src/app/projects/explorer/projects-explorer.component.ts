@@ -26,7 +26,6 @@ export class ProjectsExplorerComponent implements OnInit {
           this.projects.push(new Project);
           this.counter++;
         }
-        console.log(this.counter);
         if (this.counter === 2) {
           this.projects = this.projects.slice(0, this.projects.length - 2);
           this.counter = this.counter - 2;

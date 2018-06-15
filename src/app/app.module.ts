@@ -28,6 +28,8 @@ import { ProjectManagerComponent } from './projects/manager/project-manager.comp
 import { LoginComponent } from './login/login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
+import { AuthService } from './_services/auth.service';
+import { AuthGuard } from './_guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { ContactsListComponent } from './contacts-list/contacts-list.component';
     ReactiveFormsModule
   ],
   providers: [
+    AuthService,
     WindowScrolling,
+    AuthGuard,
     {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]

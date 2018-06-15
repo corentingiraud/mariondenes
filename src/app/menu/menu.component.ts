@@ -9,10 +9,10 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
   styleUrls: ['./menu.component.scss'],
   animations: [
     trigger('fadeIn', [
-      state('active-mobile', style([{opacity: 0.95}, {'z-index': 0}])),
-      state('inactive', style([{opacity: 0}, {'z-index': -1}])),
-      state('none', style([{opacity: 0}])),
       state('active-desktop', style({opacity: 1})),
+      state('active-mobile', style({opacity: 0.95})),
+      state('inactive', style([{opacity: 0}, {'z-index': -1}])),
+      state('none', style([{opacity: 0}, {'z-index': -1}])),
       transition('inactive => active-mobile', animate(80, keyframes([
         style({opacity: 0, offset: 0}),
         style({opacity: 0.95, offset: 1}),
