@@ -1,6 +1,6 @@
 <div ngClass="standard-menu" [ngClass.xs]="{'standard-menu':false, 'mobile-menu':true, 'invisible': !isActive}" 
   fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" fxLayoutAlign.xs="center center"
-  fxLayoutGap.gt-xs="17px" [@fadeIn]="fadeInState">
+  fxLayoutGap.gt-xs="16px" [@fadeIn]="fadeInState">
   <div [ngClass.xs]="{'menu-item':true}">
     <a routerLink="/about-me" routerLinkActive="active" (click)="toogle()">À PROPOS</a>
   </div>

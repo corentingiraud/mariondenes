@@ -1,15 +1,14 @@
-<div fxLayout="row" fxLayoutGap="20px" *ngIf="(project$ | async) as project; else loading">
+<div fxLayout="row" fxLayout.lt-md="column-reverse" fxLayoutGap="20px" *ngIf="project; else loading" fxLayoutAlign="start start">
   <div fxFlex="60%" fxLayout="column" fxLayoutGap="10px">
-    <div>
-      Image 1
-    </div>
-    <div>
-      Image 2
+    <div *ngFor="let urls of slidersImages">
+      <ngx-gallery [images]="urls" [options]="config"></ngx-gallery>
     </div>
   </div>
   <div fxFlex="40%" fxLayout="column" fxLayoutAlign="center end" fxLayoutGap="10px">
-    <h2 class="project-title">{{ project.name }}</h2>
     <div>
+      <h2 class="wow fadeInRight project-title">{{project.name}}</h2>
+    </div>
+    <div class="wow fadeIn justify">
       {{ project.description }}
     </div>
   </div>

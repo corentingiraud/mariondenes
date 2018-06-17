@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 import { Router } from '@angular/router';
+import { NgwWowService } from 'ngx-wow';
 
 @Component({
   selector: 'app-projects',
@@ -19,7 +20,8 @@ export class ProjectsExplorerComponent implements OnInit {
 
   counter = 0;
 
-  constructor(afs: AngularFirestore, media: ObservableMedia, private router: Router) {
+  constructor(afs: AngularFirestore, media: ObservableMedia,
+      private router: Router, private wowService: NgwWowService) {
     media.subscribe((change: MediaChange) => {
       if (change.mqAlias === 'xs' && this.projects) {
         if (this.projects.length % 2 !== 0) {
@@ -51,6 +53,7 @@ export class ProjectsExplorerComponent implements OnInit {
       })
     );
     this.projects$.subscribe(projects => {
+      this.wowService.init();
       this.projects = projects;
       if (media.isActive('xs')) {
         if (this.projects.length % 2 !== 0) {

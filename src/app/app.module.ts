@@ -9,6 +9,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgwWowModule } from 'ngx-wow';
+import { NgxGalleryModule } from 'ngx-gallery';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -60,7 +63,9 @@ import { AuthGuard } from './_guards/auth.guard';
     AngularFireStorageModule,
     AngularFireAuthModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgwWowModule.forRoot(),
+    NgxGalleryModule,
   ],
   providers: [
     AuthService,

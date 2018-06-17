@@ -7,7 +7,7 @@ export class Project {
   mainPictureURL: string;
   pictureCategories: Array<{
     name: string;
-    picturesURLs: string[];
+    pictureURLs: string[];
   }>;
   tags: string[];
 
