@@ -11,10 +11,10 @@
     <a routerLink="/contact" routerLinkActive="active" (click)="toogle()">CONTACT</a>
   </div>
 </div>
-<div fxHide fxShow.xs="true">
+<div fxHide fxShow.xs="true" class="hamburger-zindex">
   <button class="hamburger hamburger--minus" [ngClass]="{'is-active': isActive}" (click)="toogle()" type="button">
     <span class="hamburger-box">
-      <span class="hamburger-inner"></span>
+      <span class="hamburger-inner hamburger-menu"></span>
     </span>
   </button>
 </div>

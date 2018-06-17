@@ -1,6 +1,7 @@
-<div fxLayout="row" fxLayout.lt-md="column-reverse" fxLayoutGap="20px" *ngIf="project; else loading" fxLayoutAlign="start start">
+<div fxLayout="row" fxLayout.lt-md="column-reverse" fxLayoutGap="20px" 
+  *ngIf="project; else loading" fxLayoutAlign="start" fxLayoutAlign.gt-sm="start start">
   <div fxFlex="60%" fxLayout="column" fxLayoutGap="10px">
-    <div *ngFor="let urls of slidersImages">
+    <div fxFlex *ngFor="let urls of slidersImages">
       <ngx-gallery [images]="urls" [options]="config"></ngx-gallery>
     </div>
   </div>
