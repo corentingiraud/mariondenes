@@ -11,7 +11,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgwWowModule } from 'ngx-wow';
 import { NgxGalleryModule } from 'ngx-gallery';
-
+import { FateModule } from 'fate-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -66,6 +66,7 @@ import { AuthGuard } from './_guards/auth.guard';
     ReactiveFormsModule,
     NgwWowModule.forRoot(),
     NgxGalleryModule,
+    FateModule,
   ],
   providers: [
     AuthService,

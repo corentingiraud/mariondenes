@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Project } from '../../_models/Project';
 import { Router } from '@angular/router';
+import { EDITOR_BUTTONS } from '../../_helpers/editor.config';
 
 @Component({
   selector: 'app-project-new',
@@ -13,6 +14,8 @@ export class ProjectNewComponent implements OnInit {
 
   projectForm: FormGroup;
   projectsCollection: AngularFirestoreCollection<Project>;
+
+  editorButtons: Array<string> = EDITOR_BUTTONS;
 
   constructor(private fb: FormBuilder, private afs: AngularFirestore, private router: Router) {
     this.projectForm = this.fb.group({
@@ -42,6 +45,7 @@ export class ProjectNewComponent implements OnInit {
           };
         })
     });
+    console.log(project);
     this.projectsCollection.add(JSON.parse(JSON.stringify(project)));
     this.router.navigate(['admin/projects']);
   }

@@ -16,12 +16,31 @@ export class ProjectViewComponent implements OnInit {
   projectDoc: AngularFirestoreDocument<Project>;
   project$: Observable<Project>;
   project: Project;
-  config: NgxGalleryOptions[] = [{
-    width: '100%',
+  configXS: NgxGalleryOptions[] = [{
+    width: '360px',
+    height: '270px',
     thumbnails: false,
     imageAnimation: NgxGalleryAnimation.Slide
   }];
-  slidersImages: NgxGalleryImage[][] = [];
+  configSM: NgxGalleryOptions[] = [{
+    width: '449px',
+    height: '336px',
+    thumbnails: false,
+    imageAnimation: NgxGalleryAnimation.Slide
+  }];
+  configMD: NgxGalleryOptions[] = [{
+    width: '468px',
+    height: '351px',
+    thumbnails: false,
+    imageAnimation: NgxGalleryAnimation.Slide
+  }];
+  configLG: NgxGalleryOptions[] = [{
+    width: '660px',
+    height: '495px',
+    thumbnails: false,
+    imageAnimation: NgxGalleryAnimation.Slide
+  }];
+  slidersImages: Array<{ urls: NgxGalleryImage[], name: string }> = [];
 
   constructor(afs: AngularFirestore, route: ActivatedRoute, private wowService: NgwWowService) {
     route.params.subscribe((params) => {
@@ -30,8 +49,8 @@ export class ProjectViewComponent implements OnInit {
       this.project$.subscribe(project => {
         this.project = project;
         project.pictureCategories.forEach(pictureCategorie => {
-          const pictureURLs = pictureCategorie.pictureURLs.map(url => ({ small: url, medium: url, big: url}));
-          this.slidersImages.push(pictureURLs);
+          const pictureURLs = pictureCategorie.pictureURLs.map(url => ({ small: url, medium: url, big: url})) as NgxGalleryImage[];
+          this.slidersImages.push({ urls: pictureURLs, name: pictureCategorie.name || '' });
         });
       });
     });

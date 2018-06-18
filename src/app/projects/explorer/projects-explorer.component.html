@@ -8,7 +8,9 @@
         <h4 class="project-name">{{project.name}}</h4>
         <h4 class="hashtag" *ngIf="project.tags">#{{ project.tags[0] }}</h4>
       </div>
-      <div class="main-picture" [ngStyle]="{ 'background': 'no-repeat center center url(' + project.mainPictureURL + ')'}"></div>
+      <div class="main-picture">
+        <img src="{{ project.mainPictureURL || '' }}" width="100%">
+      </div>
     </div>
   </div>
 </div>
