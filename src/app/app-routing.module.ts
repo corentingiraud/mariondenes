@@ -5,7 +5,7 @@ import { ProjectsExplorerComponent } from './projects/explorer/projects-explorer
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProjectViewComponent } from './projects/view/project-view.component';
-import { ProjectNewComponent } from './projects/new/project-new.component';
+import { ProjectNewEditComponent } from './projects/new-edit/project-new-edit.component';
 import { LoginComponent } from './login/login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ProjectManagerComponent } from './projects/manager/project-manager.component';
@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard]},
   { path: 'admin/contacts', component: ContactsListComponent, canActivate: [AuthGuard]},
   { path: 'admin/projects', component: ProjectManagerComponent, canActivate: [AuthGuard]},
-  { path: 'admin/projects/new', component: ProjectNewComponent },
+  { path: 'admin/projects/new', component: ProjectNewEditComponent },
   { path: 'admin/projects/:id', component: ProjectEditComponent, canActivate: [AuthGuard]},
 
 // Other page

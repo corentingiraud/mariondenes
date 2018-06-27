@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.afa.auth.getRedirectResult().then(result => {
-      console.log(result);
       if (result.user) {
         this.router.navigate(['/admin']);
       }
@@ -35,7 +34,6 @@ export class LoginComponent implements OnInit {
     // this.authService.login(this.loginForm.value['email'], this.loginForm.value['password']);
     this.authService.signInRegular(this.loginForm.value['email'], this.loginForm.value['password'])
       .then((res) => {
-        console.log(res);
         this.router.navigate(['admin']);
       })
       .catch((err) => console.log('error: ' + err));

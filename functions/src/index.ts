@@ -14,7 +14,7 @@ export const onProjectUpdate = functions.firestore
 .onUpdate((snap, context) => {
     const data = snap.after.data();
     const previousData = snap.before.data();
-    if (data.name === previousData.name) return null;
+    if (data.description === previousData.description) return null;
     return snap.after.ref.set({
       updatedAt: new Date(),
     }, { merge: true });

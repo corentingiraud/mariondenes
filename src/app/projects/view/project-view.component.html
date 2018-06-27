@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayout.lt-md="column-reverse" fxLayoutGap="20px" 
   *ngIf="project; else loading" fxLayoutAlign="start center" fxLayoutAlign.gt-sm="center start">
   <div fxFlex="60%" fxLayout="column" fxLayoutGap="30px">
-    <div fxLayoutAlign="center center" fxLayout="column" fxFlex="100%" *ngFor="let slider of slidersImages">
+    <div fxLayoutAlign="center center" fxLayout="column" *ngFor="let slider of slidersImages">
       <div fxHide fxShow.xs="true">
         <ngx-gallery [images]="slider.urls" [options]="configXS"></ngx-gallery>
       </div>

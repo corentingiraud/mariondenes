@@ -24,7 +24,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProjectViewComponent } from './projects/view/project-view.component';
 import { WindowScrolling } from './_services/windows.service';
-import { ProjectNewComponent } from './projects/new/project-new.component';
+import { ProjectNewEditComponent } from './projects/new-edit/project-new-edit.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { ProjectEditComponent } from './projects/edit/project-edit.component';
 import { ProjectManagerComponent } from './projects/manager/project-manager.component';
@@ -45,7 +45,7 @@ import { AuthGuard } from './_guards/auth.guard';
     ContactComponent,
     NotFoundComponent,
     ProjectViewComponent,
-    ProjectNewComponent,
+    ProjectNewEditComponent,
     SpinnerComponent,
     ProjectEditComponent,
     ProjectManagerComponent,
