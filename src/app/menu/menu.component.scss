@@ -3,7 +3,7 @@
   font-weight: 400;
   font-size: 11pt;
   font-style: italic;
-  margin-top: 25px;
+  margin-top: 5px;
 }
 
 .mobile-menu {
@@ -16,12 +16,18 @@
   top: 0;
   left: 0;
   background-color: #FFFFFF;
-  opacity: 0.9;
+  opacity: 1;
   z-index: 10000;
 }
 
-.hamburger-zindex {
+.hamburger-container {
   z-index: 10001;
+  position: relative;
+  left: 20px;
+}
+
+.hamburger {
+  transform: scale(.7);
 }
 
 .menu-item {
@@ -38,7 +44,18 @@ a {
   text-decoration: none;
   color: black;
 }
+
 a:hover, .active {
   font-weight: 600;
   text-decoration: none;
+}
+a:hover, .active {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+// Greater than 1280px
+
+.standard-menu-gt-md {
+  font-size: 13pt;
 }

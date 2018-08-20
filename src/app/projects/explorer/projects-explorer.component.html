@@ -4,9 +4,10 @@
     fxFlex="calc((100% - 10%) / 3)" fxFlex.lt-sm="calc((100% - 5%) / 2)">
     <div [style.visibility]="project.id ? 'visible' : 'hidden'" class="link wow fadeIn" fxLayout="column" 
       fxLayoutAlign="center center" (click)="navigateToProject(project)">
-      <div class="project-title" fxLayout="column wrap" fxLayoutAlign="center center" >
-        <h4 class="project-name">{{project.name}}</h4>
-        <h4 class="hashtag" *ngIf="project.tags">#{{ project.tags[0] }}</h4>
+      <div class="project-title" fxLayoutAlign="center center">
+        <h4 class="project-name" [ngClass.gt-sm]="{'project-name-gt-sm': true}">
+          {{ project.name }} <span *ngIf="project.tags" class="hashtag">#{{ project.tags[0] }}</span>
+        </h4>
       </div>
       <div class="main-picture">
         <img src="{{ project.mainPictureURL || '' }}" width="100%">

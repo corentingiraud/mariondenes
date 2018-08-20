@@ -16,30 +16,34 @@ export class ProjectViewComponent implements OnInit {
   projectDoc: AngularFirestoreDocument<Project>;
   project$: Observable<Project>;
   project: Project;
-  configXS: NgxGalleryOptions[] = [{
-    width: '360px',
-    height: '270px',
+  // config: NgxGalleryOptions[] = [{
+  //   thumbnails: false,
+  //   imageAnimation: NgxGalleryAnimation.Slide
+  // }];
+  config: NgxGalleryOptions[] = [{
+    width: '320px',
+    height: '240px',
     thumbnails: false,
     imageAnimation: NgxGalleryAnimation.Slide
   }];
-  configSM: NgxGalleryOptions[] = [{
-    width: '449px',
-    height: '336px',
-    thumbnails: false,
-    imageAnimation: NgxGalleryAnimation.Slide
-  }];
-  configMD: NgxGalleryOptions[] = [{
-    width: '468px',
-    height: '351px',
-    thumbnails: false,
-    imageAnimation: NgxGalleryAnimation.Slide
-  }];
-  configLG: NgxGalleryOptions[] = [{
-    width: '660px',
-    height: '495px',
-    thumbnails: false,
-    imageAnimation: NgxGalleryAnimation.Slide
-  }];
+  // configSM: NgxGalleryOptions[] = [{
+  //   width: '449px',
+  //   height: '336px',
+  //   thumbnails: false,
+  //   imageAnimation: NgxGalleryAnimation.Slide
+  // }];
+  // configMD: NgxGalleryOptions[] = [{
+  //   width: '468px',
+  //   height: '351px',
+  //   thumbnails: false,
+  //   imageAnimation: NgxGalleryAnimation.Slide
+  // }];
+  // configLG: NgxGalleryOptions[] = [{
+  //   width: '660px',
+  //   height: '495px',
+  //   thumbnails: false,
+  //   imageAnimation: NgxGalleryAnimation.Slide
+  // }];
   slidersImages: Array<{ urls: NgxGalleryImage[], name: string }> = [];
 
   constructor(afs: AngularFirestore, route: ActivatedRoute, private wowService: NgwWowService) {

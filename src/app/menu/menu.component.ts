@@ -10,19 +10,19 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
   animations: [
     trigger('fadeIn', [
       state('active-desktop', style({opacity: 1})),
-      state('active-mobile', style({opacity: 0.95})),
+      state('active-mobile', style({opacity: 1})),
       state('inactive', style([{opacity: 0}, {'z-index': -1}])),
       state('none', style([{opacity: 0}, {'z-index': -1}])),
       transition('inactive => active-mobile', animate(80, keyframes([
         style({opacity: 0, offset: 0}),
-        style({opacity: 0.95, offset: 1}),
+        style({opacity: 1, offset: 1}),
       ]))),
       transition('none => active-mobile', animate(80, keyframes([
         style({opacity: 0, offset: 0}),
-        style({opacity: 0.95, offset: 1}),
+        style({opacity: 1, offset: 1}),
       ]))),
       transition('active-mobile => inactive', animate(80, keyframes([
-        style({opacity: 0.95, offset: 0}),
+        style({opacity: 1, offset: 0}),
         style({opacity: 0, offset: 1}),
       ]))),
     ])
@@ -37,13 +37,14 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fadeInState = this.media.isActive('xs') ? 'inactive' : 'active-desktop';
+    this.fadeInState = this.media.isActive('xs') || this.media.isActive('sm') ?
+      'inactive' : 'active-desktop';
     this.media.subscribe((change: MediaChange) => {
-      if (change.mqAlias === 'xs') {
+      if (change.mqAlias === 'xs' || change.mqAlias === 'sm' ) {
         this.isActive = false;
         this.fadeInState = 'none';
       }
-      if (change.mqAlias === 'sm') {
+      if (change.mqAlias === 'md') {
         this.isActive = true;
         this.fadeInState = 'active-desktop';
       }
@@ -51,7 +52,7 @@ export class MenuComponent implements OnInit {
   }
 
   toogle() {
-    if (this.media.isActive('xs')) {
+    if (this.media.isActive('xs') || this.media.isActive('sm')) {
       this.isActive = !this.isActive;
       this.fadeInState = this.isActive ? 'active-mobile' : 'inactive';
     }

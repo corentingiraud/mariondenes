@@ -2,7 +2,10 @@
   *ngIf="project; else loading" fxLayoutAlign="start center" fxLayoutAlign.gt-sm="center start">
   <div fxFlex="60%" fxLayout="column" fxLayoutGap="30px">
     <div fxLayoutAlign="center center" fxLayout="column" *ngFor="let slider of slidersImages">
-      <div fxHide fxShow.xs="true">
+      <div fxFlex>
+        <ngx-gallery fxFlex [images]="slider.urls" [options]="config"></ngx-gallery>
+      </div>
+      <!-- <div fxHide fxShow.xs="true">
         <ngx-gallery [images]="slider.urls" [options]="configXS"></ngx-gallery>
       </div>
       <div fxHide fxShow.sm="true">
@@ -13,7 +16,7 @@
       </div>
       <div fxHide fxShow.gt-md="true">
         <ngx-gallery [images]="slider.urls" [options]="configLG"></ngx-gallery>
-      </div>
+      </div> -->
       <div>
         <i>{{ slider.name }}</i>
       </div> 

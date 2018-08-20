@@ -1,17 +1,17 @@
-<div ngClass="standard-menu" [ngClass.xs]="{'standard-menu':false, 'mobile-menu':true, 'invisible': !isActive}" 
-  fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start center" fxLayoutAlign.xs="center center"
-  fxLayoutGap.gt-xs="16px" [@fadeIn]="fadeInState">
-  <div [ngClass.xs]="{'menu-item':true}">
+<div ngClass="standard-menu" [ngClass.lt-md]="{'standard-menu':false, 'mobile-menu':true, 'invisible': !isActive}"
+  [ngClass.gt-md]="{'standard-menu': true, 'standard-menu-gt-md': true}" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start center" 
+  fxLayoutAlign.lt-md="center center" fxLayoutGap.gt-sm="16px" [@fadeIn]="fadeInState">
+  <div [ngClass.lt-md]="{'menu-item':true}">
     <a routerLink="/about-me" routerLinkActive="active" (click)="toogle()">À PROPOS</a>
   </div>
-  <div [ngClass.xs]="{'menu-item':true}">
+  <div [ngClass.lt-md]="{'menu-item':true}">
     <a routerLink="/projects" routerLinkActive="active" (click)="toogle()">MES PROJETS</a>
   </div>
-  <div [ngClass.xs]="{'menu-item':true}">
+  <div [ngClass.lt-md]="{'menu-item':true}">
     <a routerLink="/contact" routerLinkActive="active" (click)="toogle()">CONTACT</a>
   </div>
 </div>
-<div fxHide fxShow.xs="true" class="hamburger-zindex">
+<div fxHide fxShow.lt-md="true" class="hamburger-container">
   <button class="hamburger hamburger--minus" [ngClass]="{'is-active': isActive}" (click)="toogle()" type="button">
     <span class="hamburger-box">
       <span class="hamburger-inner hamburger-menu"></span>

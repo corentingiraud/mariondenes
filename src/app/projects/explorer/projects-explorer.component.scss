@@ -11,11 +11,12 @@
 }
 
 .project-title {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .project-name {
   font-family: 'Roboto Condensed', sans-serif;
+  font-size: 8pt;
   font-weight: 300;
   width: 100%;
   margin: 0;
@@ -25,9 +26,14 @@
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 300;
   font-style: italic;
-  margin: 0;
 }
 
 .main-picture {
   width: 100%;
+}
+
+// Greater than 960px
+
+.project-name-gt-sm {
+  font-size: 10pt;
 }
