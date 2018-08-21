@@ -23,25 +23,23 @@ export class ProjectNewEditComponent implements OnInit {
   constructor(private fb: FormBuilder, private afs: AngularFirestore, private router: Router) {
     this.projectForm = this.fb.group({
       name: ['', Validators.required],
-      description: ['', Validators.required],
       mainPictureURL: ['', Validators.required],
       tags: '',
     });
-    const picCats = this.fb.array([]);
-    this.projectForm.setControl('picCats', picCats);
+    const contentParts = this.fb.array([]);
+    this.projectForm.setControl('contentParts', contentParts);
     this.projectsCollection = afs.collection<Project>('projects');
   }
 
   ngOnInit() {
     if (this.projectInput) {
       this.projectForm.get('name').setValue(this.projectInput.name);
-      this.projectForm.get('description').setValue(this.projectInput.description);
       this.projectForm.get('mainPictureURL').setValue(this.projectInput.mainPictureURL);
       this.projectForm.get('tags').setValue(this.projectInput.tags.join(','));
-      this.projectInput.pictureCategories.forEach(pictureCategory => {
-        this.addPicCat(pictureCategory.name);
-        pictureCategory.pictureURLs.forEach(pictureURL => {
-          this.addPicUrl(this.projectInput.pictureCategories.indexOf(pictureCategory), pictureURL);
+      this.projectInput.contentParts.forEach(contentPart => {
+        this.addContentPart(contentPart.title, contentPart.body, contentPart.picturesTitle);
+        contentPart.pictureURLs.forEach(pictureURL => {
+          this.addPicUrl(this.projectInput.contentParts.indexOf(contentPart), pictureURL);
         });
       });
     }
@@ -50,15 +48,16 @@ export class ProjectNewEditComponent implements OnInit {
   addOrUpdateProject(): void {
     const project = new Project({
       name: this.projectForm.value.name,
-      description: this.projectForm.value.description,
       mainPictureURL: this.projectForm.value.mainPictureURL,
       tags: this.projectForm.value.tags.split(','),
-      pictureCategories: this.projectForm.value.picCats.map(val => {
-          return {
-            name: val.name,
-            pictureURLs: val.picUrls.map(url => url.picUrl)
-          };
-        })
+      contentParts: this.projectForm.value.contentParts.map(val => {
+        return {
+          title: val.title,
+          body: val.body,
+          picturesTitle: val.picturesTitle,
+          pictureURLs: val.picUrls.map(url => url.picUrl)
+        };
+      }),
     });
     if (this.projectInput) {
       this.afs.doc('/projects/' + this.projectInput.id).update(JSON.parse(JSON.stringify(project)));
@@ -68,36 +67,38 @@ export class ProjectNewEditComponent implements OnInit {
     this.router.navigate(['admin/projects']);
   }
 
-  addPicCat(name?: string): void {
-    const picCat = this.fb.group({
-      name: [name || '', Validators.required],
+  addContentPart(title?: string, body?: string, picturesTitle?: string): void {
+    const contentPart = this.fb.group({
+      title: [title || '', Validators.required],
+      body: [body || '', Validators.required],
+      picturesTitle: [picturesTitle || ''],
     });
     const picUrls = this.fb.array([]);
-    picCat.setControl('picUrls', picUrls);
-    this.picCats.push(picCat);
+    contentPart.setControl('picUrls', picUrls);
+    this.contentParts.push(contentPart);
   }
 
-  addPicUrl(indexPicCat: number, url?: string): void {
-    this.getPicUrls(indexPicCat).push(this.fb.group({
+  addPicUrl(indexContentPart: number, url?: string): void {
+    this.getPicUrls(indexContentPart).push(this.fb.group({
       picUrl: [url || '', Validators.required],
     }));
   }
 
-  removePicCat(indexPicCat): void {
-    this.picCats.removeAt(indexPicCat);
+  removeContentPart(indexContentPart): void {
+    this.contentParts.removeAt(indexContentPart);
   }
 
-  removePicUrl(indexPicCat, indexPicUrl): void {
-    this.getPicUrls(indexPicCat).removeAt(indexPicUrl);
+  removePicUrl(indexContentPart, indexPicUrl): void {
+    this.getPicUrls(indexContentPart).removeAt(indexPicUrl);
   }
 
   // Form Geter
 
-  get picCats (): FormArray {
-    return this.projectForm.get('picCats') as FormArray;
+  get contentParts (): FormArray {
+    return this.projectForm.get('contentParts') as FormArray;
   }
 
-  getPicUrls(indexPicCat: number): FormArray {
-    return this.picCats.controls[indexPicCat].get('picUrls') as FormArray;
+  getPicUrls(indexContentPart: number): FormArray {
+    return this.contentParts.controls[indexContentPart].get('picUrls') as FormArray;
   }
 }

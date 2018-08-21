@@ -7,19 +7,21 @@
         <input type="text" placeholder="Nom du projet" formControlName="name">
         <input type="text" placeholder="URL de l'illustration principale" formControlName="mainPictureURL">
         <input type="text" placeholder="Tags (séparé par une virgule)" formControlName="tags">
-        <fate-ui uiId="descriptionEditor" [buttons]="editorButtons"></fate-ui>
-        <fate-input uiId="descriptionEditor" formControlName="description"></fate-input>
-        <div formArrayName="picCats" fxLayout="column" fxLayoutGap="30px">
-          <div *ngFor="let picCat of picCats.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px">
+        <div formArrayName="contentParts" fxLayout="column" fxLayoutGap="30px">
+          <div *ngFor="let contentPart of contentParts.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px">
             <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">
-              <button type="button" (click)="removePicCat(i)">-</button>
-              <h3 class="sub-title">Categorie d'illustration {{ i + 1 }}</h3>
+              <button type="button" (click)="removeContentPart(i)">-</button>
+              <h3 class="sub-title">Contenu {{ i + 1 }}</h3>
             </div>
-            <input type="text" formControlName="name" placeholder="Nom de la categorie">
+            <input type="text" formControlName="title" placeholder="Titre du contenu {{ i + 1 }}">
+            <fate-ui uiId="descriptionEditor" [buttons]="editorButtons"></fate-ui>
+            <fate-input uiId="descriptionEditor" formControlName="body"></fate-input>
+            <h4 class="content-sub-title">Illustration(s)</h4>
+            <input type="text" formControlName="picturesTitle" placeholder="Titre des illustrations (optionnel)">
             <div fxLayout="row">
               <div fxFlex="10%"></div>
               <div fxFlex formArrayName="picUrls" fxLayout="column" fxLayoutGap="5px">
-                <div *ngFor="let picCat of getPicUrls(i).controls; let j = index" [formGroupName]="j" fxLayout="column" fxLayoutGap="5px">
+                <div *ngFor="let picURL of getPicUrls(i).controls; let j = index" [formGroupName]="j" fxLayout="column" fxLayoutGap="5px">
                   <div fxLayout="row" fxLayoutGap="10px">
                     <button type="button" (click)="removePicUrl(i, j)">-</button>
                     <label>Illustration {{ j + 1 }}</label>
@@ -33,7 +35,7 @@
               </div>
             </div>
           </div>
-          <button type="button" (click)="addPicCat()">AJOUTER UNE CATEGORIE D'ILLUSTRATION</button>
+          <button type="button" (click)="addContentPart()">AJOUTER UN NOUVEAU CONTENU</button>
         </div>
         <div fxLayoutAlign="center">
           <button fxFlex="120px" type="submit" [disabled]="!projectForm.valid">Envoyer</button>

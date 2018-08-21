@@ -1,15 +1,16 @@
 export class Project {
   id: number;
   name: string;
-  description: string;
   createdAt: Date;
   updatedAt: Date;
   mainPictureURL: string;
-  pictureCategories: Array<{
-    name: string;
-    pictureURLs: string[];
+  contentParts: Array<{
+    title: string;
+    body: string;
+    picturesTitle: string;
+    pictureURLs: Array<string>;
   }>;
-  tags: string[];
+  tags: Array<string>;
 
   constructor(values: Object = {}) {
     Object.assign(this, values);

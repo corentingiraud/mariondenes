@@ -52,10 +52,10 @@ export class ProjectViewComponent implements OnInit {
       this.project$ = this.projectDoc.valueChanges();
       this.project$.subscribe(project => {
         this.project = project;
-        project.pictureCategories.forEach(pictureCategorie => {
-          const pictureURLs = pictureCategorie.pictureURLs.map(url => ({ small: url, medium: url, big: url})) as NgxGalleryImage[];
-          this.slidersImages.push({ urls: pictureURLs, name: pictureCategorie.name || '' });
-        });
+        // project.pictureCategories.forEach(pictureCategorie => {
+        //   const pictureURLs = pictureCategorie.pictureURLs.map(url => ({ small: url, medium: url, big: url})) as NgxGalleryImage[];
+        //   this.slidersImages.push({ urls: pictureURLs, name: pictureCategorie.name || '' });
+        // });
       });
     });
   }
