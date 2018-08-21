@@ -7,6 +7,8 @@
         <input type="text" placeholder="Nom du projet" formControlName="name">
         <input type="text" placeholder="URL de l'illustration principale" formControlName="mainPictureURL">
         <input type="text" placeholder="Tags (séparé par une virgule)" formControlName="tags">
+        <fate-ui uiId="introductionEditor" [buttons]="editorButtons"></fate-ui>
+        <fate-input uiId="introductionEditor" formControlName="introduction"></fate-input>
         <div formArrayName="contentParts" fxLayout="column" fxLayoutGap="30px">
           <div *ngFor="let contentPart of contentParts.controls; let i = index" [formGroupName]="i" fxLayout="column" fxLayoutGap="5px">
             <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center">

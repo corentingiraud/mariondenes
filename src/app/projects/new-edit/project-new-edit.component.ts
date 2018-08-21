@@ -24,6 +24,7 @@ export class ProjectNewEditComponent implements OnInit {
     this.projectForm = this.fb.group({
       name: ['', Validators.required],
       mainPictureURL: ['', Validators.required],
+      introduction: ['', Validators.required],
       tags: '',
     });
     const contentParts = this.fb.array([]);
@@ -35,6 +36,7 @@ export class ProjectNewEditComponent implements OnInit {
     if (this.projectInput) {
       this.projectForm.get('name').setValue(this.projectInput.name);
       this.projectForm.get('mainPictureURL').setValue(this.projectInput.mainPictureURL);
+      this.projectForm.get('introduction').setValue(this.projectInput.introduction);
       this.projectForm.get('tags').setValue(this.projectInput.tags.join(','));
       this.projectInput.contentParts.forEach(contentPart => {
         this.addContentPart(contentPart.title, contentPart.body, contentPart.picturesTitle);
@@ -49,6 +51,7 @@ export class ProjectNewEditComponent implements OnInit {
     const project = new Project({
       name: this.projectForm.value.name,
       mainPictureURL: this.projectForm.value.mainPictureURL,
+      introduction: this.projectForm.value.introduction,
       tags: this.projectForm.value.tags.split(','),
       contentParts: this.projectForm.value.contentParts.map(val => {
         return {

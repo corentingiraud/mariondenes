@@ -4,6 +4,7 @@ export class Project {
   createdAt: Date;
   updatedAt: Date;
   mainPictureURL: string;
+  introduction: string;
   contentParts: Array<{
     title: string;
     body: string;
