@@ -2,7 +2,7 @@
 <div class="project-container" fxLayout="row wrap" fxLayoutGap="5% grid">
   <div class="project-item" *ngFor="let project of projects" 
     fxFlex="calc((100% - 10%) / 3)" fxFlex.lt-sm="calc((100% - 5%) / 2)">
-    <div [style.visibility]="project.id ? 'visible' : 'hidden'" class="link wow fadeIn" fxLayout="column" 
+    <div [style.visibility]="project.id ? 'visible' : 'hidden'" class="link" fxLayout="column" 
       fxLayoutAlign="center center" (click)="navigateToProject(project)">
       <div class="project-title" fxLayoutAlign="center center">
         <h4 class="project-name" [ngClass.gt-sm]="{'project-name-gt-sm': true}">

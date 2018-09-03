@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgwWowService } from 'ngx-wow';
 
 @Component({
   selector: 'app-about-me',
@@ -8,10 +7,9 @@ import { NgwWowService } from 'ngx-wow';
 })
 export class AboutMeComponent implements OnInit {
 
-  constructor(private wowService: NgwWowService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.wowService.init();
   }
 
 }

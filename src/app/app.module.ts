@@ -9,8 +9,6 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgwWowModule } from 'ngx-wow';
-import { NgxGalleryModule } from 'ngx-gallery';
 import { FateModule } from 'fate-editor';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -51,7 +49,7 @@ import { AuthGuard } from './_guards/auth.guard';
     ProjectManagerComponent,
     LoginComponent,
     AdminDashboardComponent,
-    ContactsListComponent
+    ContactsListComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,8 +62,6 @@ import { AuthGuard } from './_guards/auth.guard';
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    NgwWowModule.forRoot(),
-    NgxGalleryModule,
     FateModule,
   ],
   providers: [

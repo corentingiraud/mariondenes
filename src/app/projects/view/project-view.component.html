@@ -1,33 +1,16 @@
-<div fxLayout="row" fxLayout.lt-md="column-reverse" fxLayoutGap="20px" 
-  *ngIf="project; else loading" fxLayoutAlign="start center" fxLayoutAlign.gt-sm="center start">
-  <div fxFlex="60%" fxLayout="column" fxLayoutGap="30px">
-    <div fxLayoutAlign="center center" fxLayout="column" *ngFor="let slider of slidersImages">
-      <div fxFlex>
-        <ngx-gallery fxFlex [images]="slider.urls" [options]="config"></ngx-gallery>
-      </div>
-      <!-- <div fxHide fxShow.xs="true">
-        <ngx-gallery [images]="slider.urls" [options]="configXS"></ngx-gallery>
-      </div>
-      <div fxHide fxShow.sm="true">
-        <ngx-gallery [images]="slider.urls" [options]="configSM"></ngx-gallery>
-      </div>
-      <div fxHide fxShow.md="true">
-        <ngx-gallery [images]="slider.urls" [options]="configMD"></ngx-gallery>
-      </div>
-      <div fxHide fxShow.gt-md="true">
-        <ngx-gallery [images]="slider.urls" [options]="configLG"></ngx-gallery>
-      </div> -->
-      <div>
-        <i>{{ slider.name }}</i>
-      </div> 
-    </div>
+<div *ngIf="project; else loading" fxLayout="column" fxLayoutGap="20px">
+  <div fxFlex>
+    <h2 class="project-title">{{project.name}}</h2>
   </div>
-  <div fxFlex="40%" fxLayout="column" fxLayoutAlign="center end" fxLayoutGap="10px">
+  <div *ngFor="let contentPart of project.contentParts" fxLayout="column" fxLayoutGap="10px">
     <div>
-      <h2 class="wow fadeInRight project-title">{{project.name}}</h2>
+      <h3 class="content-title">
+        {{ contentPart.title }}
+      </h3>
     </div>
-    <!-- <div [innerHTML]="project.description" class="wow fadeIn justify">
-    </div> -->
+    <div [innerHTML]="contentPart.body"></div>
+    <div fxLayout="row" class="carousel-container">
+    </div>
   </div>
 </div>
   

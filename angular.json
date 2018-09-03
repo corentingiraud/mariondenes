@@ -47,11 +47,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/css/hamburgers.min.css",
+              "src/assets/css/hamburgers.min.css"
             ],
-            "scripts": [
-              "./node_modules/wowjs/dist/wow.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
