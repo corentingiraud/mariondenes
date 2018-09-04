@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FateModule } from 'fate-editor';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -63,6 +64,7 @@ import { AuthGuard } from './_guards/auth.guard';
     FormsModule,
     ReactiveFormsModule,
     FateModule,
+    NgbCarouselModule,
   ],
   providers: [
     AuthService,

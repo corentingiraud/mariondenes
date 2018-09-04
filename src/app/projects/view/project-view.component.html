@@ -1,19 +1,39 @@
-<div *ngIf="project; else loading" fxLayout="column" fxLayoutGap="20px">
-  <div fxFlex>
+<div *ngIf="project; else loading" fxLayout="column" fxLayoutGap="40px">
+  <div fxLayout="column" fxLayoutAlign="start end">
     <h2 class="project-title">{{project.name}}</h2>
+    <span class="tags">#{{project.tags[0]}}</span>
   </div>
-  <div *ngFor="let contentPart of project.contentParts" fxLayout="column" fxLayoutGap="10px">
-    <div>
-      <h3 class="content-title">
-        {{ contentPart.title }}
-      </h3>
+  <div *ngFor="let contentPart of project.contentParts; let isLast=last"
+    fxLayout="column" fxLayoutGap="20px">
+    <div fxLayout="column" fxLayoutGap="10px"
+      fxLayout.gt-sm="row-reverse" fxLayoutGap.gt-sm="20px" fxLayoutAlign.gt-sm="start center">
+      <div fxFlex="100%" fxFlex.gt-sm="40%" fxLayout="column">
+        <div fxLayoutAlign.lt-md="center">
+          <h3 class="content-title">
+            {{ contentPart.title }}
+          </h3>
+        </div>
+        <div [innerHTML]="contentPart.body"></div>
+      </div>
+      <ngb-carousel *ngIf="contentPart.pictureURLs && contentPart.pictureURLs.length > 0"
+        fxFlex.gt-sm="60%">
+        <ng-template ngbSlide *ngFor="let image of contentPart.pictureURLs">
+          <img [src]="image" alt="Random first slide" class="w-100">
+        </ng-template>
+      </ngb-carousel>
     </div>
-    <div [innerHTML]="contentPart.body"></div>
-    <div fxLayout="row" class="carousel-container">
+    <div fxLayout="row" fxLayoutAlign.gt-sm="end" *ngIf="!isLast">
+      <div fxFlex="100%" fxFlex.gt-sm="40%" fxLayoutAlign="center">
+        <div>
+          <span class="spacer">
+            .<br>.<br>.<br>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-  
+
 <ng-template #loading>
     <app-spinner></app-spinner>
 </ng-template>
