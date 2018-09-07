@@ -1,3 +1,13 @@
+.title {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 22pt;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+}
+
 .timeline {
   border-top: 1px solid black;
 }
@@ -7,16 +17,53 @@
   height: 20px;
 }
 
-.timelineDescription {
+.timeline-description {
   text-align: center;
+
+  h2 {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 18pt;
+  }
 }
 
-.experiencesTitle {
-  border: 1px solid black;
-  height: 200px;
-  text-align: center;
+.hidden {
+  display: none !important;
 }
 
-.experiencesTitle > h1 {
-  margin-bottom: 0;
+.timeline-mobile {
+  border-left: 1px solid black;
+}
+
+.horizontalTimelineMarker {
+  border-top: 1px solid black;
+  width: 20px;
+}
+
+.timeline-description-mobile {
+  h2 {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 18pt;
+  }
+}
+
+.experience-title {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 18pt;
+}
+
+.competences-timeline-mobile {
+  margin-left: 15px;
+}
+
+.image-mobile {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
