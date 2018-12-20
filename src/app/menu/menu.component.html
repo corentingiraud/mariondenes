@@ -1,13 +1,14 @@
-<div ngClass="standard-menu" [ngClass.lt-md]="{'standard-menu':false, 'mobile-menu':true, 'invisible': !isActive}"
-  [ngClass.gt-md]="{'standard-menu': true, 'standard-menu-gt-md': true}" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start center" 
-  fxLayoutAlign.lt-md="center center" fxLayoutGap.gt-sm="16px" [@fadeIn]="fadeInState">
-  <div [ngClass.lt-md]="{'menu-item':true}">
+<div class="standard-menu" [ngClass.lt-md]="{'standard-menu':false, 'mobile-menu':true, 'invisible': !isActive}"
+  [ngClass.gt-md]="{'standard-menu': true, 'standard-menu-gt-md': true}" fxLayout="row"
+  fxLayout.lt-md="column" fxLayoutAlign="start center"
+  fxLayoutAlign.lt-md="center center" fxLayoutGap.gt-sm="16px">
+  <div ngClass.lt-md="menu-item">
     <a routerLink="/about-me" routerLinkActive="active" (click)="toogle()">À PROPOS</a>
   </div>
-  <div [ngClass.lt-md]="{'menu-item':true}">
+  <div ngClass.lt-md="menu-item">
     <a routerLink="/projects" routerLinkActive="active" (click)="toogle()">MES PROJETS</a>
   </div>
-  <div [ngClass.lt-md]="{'menu-item':true}">
+  <div ngClass.lt-md="menu-item">
     <a routerLink="/contact" routerLinkActive="active" (click)="toogle()">CONTACT</a>
   </div>
 </div>

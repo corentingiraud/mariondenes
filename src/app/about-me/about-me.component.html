@@ -1,10 +1,5 @@
-<!-- <div fxFlex fxLayoutAlign="center">
-  <p>
-    Page "À propos" en cours de développement...
-  </p>
-</div> -->
 <div fxLayout="column" fxLayoutGap="40px">
-  
+
   <!-- TILTE -->
   <div fxLayout="row" fxLayoutAlign="end">
     <h1 class="title">À propos</h1>
@@ -14,10 +9,10 @@
   <div fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="start start"
     fxLayout.lt-md="column-reverse" fxLayoutGap.lt-md="30px" fxLayoutAlign.lt-md="start stretch">
     <div fxFlex.gt-sm="33%">
-      <img src="http://via.placeholder.com/350x350" class="w-100" [ngClass.lt-md]="{'image-mobile':true}">
+      <img src="http://via.placeholder.com/350x350" class="w-100" ngClass.lt-md="{'image-mobile':true}">
     </div>
     <div fxFlex="100%" fxFlex.gt-sm="67%" fxLayout="column">
-      <div fxLayout="row" fxLayoutAlign.lt-md="center">
+      <div fxLayout="row">
         <h1>Qui suis-je ?</h1>
       </div>
       <div>
@@ -36,7 +31,7 @@
 
   <!-- MON PARCOURS -->
   <div fxLayout="column" fxLayoutGap="30px">
-    <div fxLayout="row" fxLayoutAlign.lt-md="center">
+    <div fxLayout="row">
       <h1>
         Mon parcours
       </h1>
@@ -69,7 +64,7 @@
 
   <!-- MES EXPERIENCES -->
   <div fxLayout="column" fxLayoutGap="30px">
-    <div fxLayout="row" fxLayoutAlign.lt-md="center">
+    <div fxLayout="row">
       <h1>Mes expériences</h1>
     </div>
     <div fxLayout="row" fxLayoutGap="40px" fxLayout.lt-md="column">
@@ -112,9 +107,9 @@
     </div>
   </div>
 
-    <!-- MES COMPETENCES -->
+  <!-- MES COMPETENCES -->
   <div fxLayout="column" fxLayoutGap="30px">
-    <div fxLayout="row" fxLayoutAlign.lt-md="center">
+    <div fxLayout="row">
       <h1>
         Mes compétences
       </h1>
@@ -138,7 +133,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- MOBILE -->
     <div fxLayout="row" fxLayoutAlign="center" [ngClass.gt-sm]="{'hidden':true}">
       <div fxLayout="column" fxLayoutGap="50px">
