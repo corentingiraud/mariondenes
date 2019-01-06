@@ -6,24 +6,54 @@
   </div>
 
   <!-- WHO AM I -->
-  <div fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="start start"
-    fxLayout.lt-md="column-reverse" fxLayoutGap.lt-md="30px" fxLayoutAlign.lt-md="start stretch">
+  <div fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="start start" fxLayout.lt-md="column-reverse" fxLayoutGap.lt-md="30px"
+    fxLayoutAlign.lt-md="space-between stretch">
     <div fxFlex.gt-sm="33%">
       <img src="http://via.placeholder.com/350x350" class="w-100" ngClass.lt-md="{'image-mobile':true}">
     </div>
-    <div fxFlex="100%" fxFlex.gt-sm="67%" fxLayout="column">
-      <div fxLayout="row">
-        <h1>Qui suis-je ?</h1>
+    <div fxFlex.gt-sm="67%">
+      <div>
+        <h1>Hello,</h1>
       </div>
       <div>
         <p>
-          Qae est inter natos et parentes, quae dirimi nisi detestabili scelere non potest; deinde cum similis sensus exstitit amoris, si aliquem nacti sumus cuius cum moribus et natura congruamus, quod in eo quasi lumen aliquod probitatis et virtutis perspicere videamur. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam tempus et ab eis ita amantur ut facile earum sensus appareat. Quod in homine multo est evidentius, primum ex ea caritate quae est inter natos et parentes.
+          Je m’apelle Marion Dénès, je suis une fille du soleil et de la pluie : bretonne pur souche mais fille
+          du sud avec comme on dit chez nous « un grand coeur et une grande gueule » !
         </p>
         <p>
-          Non ergo erunt homines deliciis diffluentes audiendi, si quando de amicitia, quam nec usu nec ratione habent cognitam, disputabunt. Nam quis est, pro deorum fidem atque hominum! qui velit, ut neque diligat quemquam nec ipse ab ullo diligatur, circumfluere omnibus copiis atque in omnium rerum abundantia vivere? Haec enim est tyrannorum vita nimirum, in qua nulla fides, nulla caritas, nulla stabilis benevolentiae potest esse fiducia, omnia semper suspecta atque sollicita, nullus locus amicitiae.
+          Depuis petite j’ai eu la chance de m’initier à plusieurs pratiques artistiques et sportives et ... je suis
+          dans l’obligation d’admettre que certaines furent plus concluante que d’autres (cf le tableau ci-
+          dessous).
         </p>
         <p>
-          Si aliquem nacti sumus cuius cum moribus et natura congruamus, quod in eo quasi lumen aliquod probitatis et virtutis perspicere videamur. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest. Quod cum ita sit, paucae domus studiorum seriis cultibus antea celebratae nunc ludibriis ignaviae torpentis exundant, vocali sonu, perflabili tinnitu fidium resultantes.
+          <i>Tableau des pratiques avorter (poterie, danse, batterie, escalade, judo, badminton) et
+            accomplises (chant, théâtre, comédie musicale, photographie). ↓</i>
+        </p>
+        <p>
+          Aujourd’hui avec du recul, je me rend compte que toutes ces pratiques (oui oui même le judo) ont
+          éveillé chez moi une sensibilité artistique, une curiosité et un besoin constant d’être stimuler
+          intellectuellement.
+        </p>
+        <p>
+          Pour ceux et celles qui en aurait déjà marre de ma vie et qui aimerait que j’en vienne au fait : voici
+          mon parcours (cf : tableau de mon parcours), pour les plus téméraires d’entres vous continuons :
+        </p>
+        <p>
+          Ma scolarité entière pourrait se résumer en deux phrases : « peu mieux faire » et « trop de
+          bavardage ». J’ai été ce qu’on appelle une élève milieu de classe : pas mauvaise mais pas
+          excellente. Après un bac littéraire passée avec brio (non je déconne) me voici lancé dans les
+          études supérieures.
+        </p>
+        <p>
+          J’ai débuté mon année de MANAA à l’ESMA (Montpellier) dans l’objectif d’intégrer ensuite un BTS
+          design de mode afin de devenir costumière au cinéma ou au théâtre. Malheureusement ou
+          heureusement pour moi (on ne le saura jamais) je suis tombée amoureuse du design graphique.
+        </p>
+        <p>
+          L’année suivante changement d’air : j’intègre l’école Condé de Lyon en BTS design graphique.
+          Ces deux années furent une véritable révélation pour moi : j’aime ce que je fais et je suis douée
+          pour cela. En 2017 je passe mon Bachelor Design graphique option médias imprimés et je le
+          réussi avec brio (non cette fois ci je déconne pas).
         </p>
       </div>
     </div>
@@ -38,8 +68,7 @@
     </div>
     <!-- DESKTOP -->
     <div class="timeline" [ngClass.lt-md]="{'hidden':true}">
-      <div fxFlex="25%" fxLayout="column" fxLayoutAlign="start center"
-        *ngFor="let item of monParcours">
+      <div fxFlex="25%" fxLayout="column" fxLayoutAlign="start center" *ngFor="let item of monParcours">
         <div class="verticalTimelineMarker"></div>
         <div class="timeline-description">
           <h2>{{item.date}}</h2>
@@ -50,8 +79,7 @@
     <!-- MOBILE -->
     <div [ngClass.gt-sm]="{'hidden':true}" fxLayoutAlign="center">
       <div class="timeline-mobile" fxLayout="column" fxLayoutGap="50px">
-        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px"
-          *ngFor="let item of monParcours">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" *ngFor="let item of monParcours">
           <div class="horizontalTimelineMarker"></div>
           <div class="timeline-description-mobile">
             <h2>{{item.date}}</h2>
@@ -67,8 +95,8 @@
     <div fxLayout="row">
       <h1>Mes expériences</h1>
     </div>
-    <div fxLayout="row" fxLayoutGap="40px" fxLayout.lt-md="column">
-      <div fxFlex.lt-md="100%" fxLayoutGap="30px" fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="start start" fxLayout.lt-md="column" fxLayoutAlign.lt-md="start stretch">
+      <div fxLayout="column" fxLayoutGap="30px" [ngClass.gt-sm]="{'col-4':true}">
         <div>
           <img src="http://via.placeholder.com/350x350" class="w-100" [ngClass.lt-md]="{'image-mobile':true}">
         </div>
@@ -76,11 +104,22 @@
           <div fxLayoutAlign="center">
             <h2 class="experience-title">#Service civique</h2>
           </div>
-          <p>Qae est inter natos et parentes, quae dirimi nisi detestabili scelere non potest; deinde cum similis sensus exstitit amoris, si aliquem nacti sumus cuius cum moribus et natura.</p>
-          <p>In eo quasi lumen aliquod probitatis et virtutis perspicere videamur. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam tempus et ab eis ita amantur ut.primum ex ea caritate</p>
+          <div>
+            <p>
+              Après 3 années passionnantes mais intenses, je décide en septembre 2017 de m’engager de
+              manière concrète en réalisant une année de service civique. Je choisis d’effectuer ma mission à
+              l’AFEV (association ayant pour but de lutter contre les inégalités dans les quartiers populaires).
+            </p>
+            <p>
+              Durant cette année j’ai beaucoup appris sur le plan humain en accompagnant des enfants en
+              fragilité dans leurs parcours. J’ai eu l’opportunité d’effectuer des actions de sensibilisation et de
+              mobilisation ainsi que des missions plus proche de mon domaine de prédilection.
+            </p>
+          </div>
         </div>
       </div>
-      <div fxFlex.lt-md="100%" fxLayoutGap="30px" fxLayout="column" fxLayout.gt-sm="column-reverse">
+      <div fxLayout="column" fxLayoutGap="30px" [ngClass.gt-sm]="{'col-4':true}" fxLayout.gt-sm="column-reverse"
+        fxFlexAlign="end">
         <div>
           <img src="http://via.placeholder.com/350x350" class="w-100" [ngClass.lt-md]="{'image-mobile':true}">
         </div>
@@ -88,20 +127,23 @@
           <div fxLayoutAlign="center">
             <h2 class="experience-title">#Stage chez Bon Caillou</h2>
           </div>
-          <p>Qae est inter natos et parentes, quae dirimi nisi detestabili scelere non potest; deinde cum similis sensus exstitit amoris, si aliquem nacti sumus cuius cum moribus et natura.</p>
-          <p>In eo quasi lumen aliquod probitatis et virtutis perspicere videamur. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam tempus et ab eis ita amantur ut.primum ex ea caritate</p>
+          <p>
+            J’ai eu la chance d’effectué mon stage de mi-parcours avec le directeur artistique : Didier Mazellier
+            (alias Bon Caillou) au sein de l’atelier « Noir Cambouis ». Durant mon stage j’ai pu m’initer aux
+            différentes techniques d’impressions artisanales (letterpress, linogravure). C’était un stage
+            passionnant qui a marqué un tournant dans ma manière d’appréhender le design graphique.
+          </p>
         </div>
       </div>
-      <div fxFlex.lt-md="100%" fxLayoutGap="30px" fxLayout="column">
+      <div fxLayout="column" fxLayoutGap="30px" [ngClass.gt-sm]="{'col-4':true}">
         <div>
           <img src="http://via.placeholder.com/350x350" class="w-100" [ngClass.lt-md]="{'image-mobile':true}">
         </div>
         <div>
           <div fxLayoutAlign="center">
-            <h2 class="experience-title">#Animatrice</h2>
+            <h2 class="experience-title">#Année de césure canadienne</h2>
           </div>
-          <p>Qae est inter natos et parentes, quae dirimi nisi detestabili scelere non potest; deinde cum similis sensus exstitit amoris, si aliquem nacti sumus cuius cum moribus et natura.</p>
-          <p>In eo quasi lumen aliquod probitatis et virtutis perspicere videamur. Quod quidem quale sit, etiam in bestiis quibusdam animadverti potest, quae ex se natos ita amant ad quoddam tempus et ab eis ita amantur ut.primum ex ea caritate</p>
+          <p><b>TODO</b></p>
         </div>
       </div>
     </div>
@@ -115,17 +157,15 @@
       </h1>
     </div>
 
-    <!-- DESKTOP -->
-    <div [ngClass.lt-md]="{'hidden':true}" fxLayout="column" fxLayoutGap="20px">
+  <!-- DESKTOP -->
+  <div [ngClass.lt-md]="{'hidden':true}" fxLayout="column" fxLayoutGap="20px">
       <div fxLayout="row">
-        <div fxFlex="25%" fxLayoutAlign="center center"
-          *ngFor="let item of mesCompetences">
+        <div fxFlex="25%" fxLayoutAlign="center center" *ngFor="let item of mesCompetences">
           <img src="assets/{{item.pictoName}}">
         </div>
       </div>
       <div class="timeline">
-        <div fxFlex="25%" fxLayout="column" fxLayoutAlign="start center"
-          *ngFor="let item of mesCompetences">
+        <div fxFlex="25%" fxLayout="column" fxLayoutAlign="start center" *ngFor="let item of mesCompetences">
           <div class="verticalTimelineMarker"></div>
           <div class="timeline-description">
             <span>{{ item.title }}</span>
@@ -134,18 +174,16 @@
       </div>
     </div>
 
-    <!-- MOBILE -->
-    <div fxLayout="row" fxLayoutAlign="center" [ngClass.gt-sm]="{'hidden':true}">
+  <!-- MOBILE -->
+  <div fxLayout="row" fxLayoutAlign="center" [ngClass.gt-sm]="{'hidden':true}">
       <div fxLayout="column" fxLayoutGap="50px">
-        <div fxFlex="25%" fxLayoutAlign="center center"
-          *ngFor="let item of mesCompetences">
+        <div fxFlex="25%" *ngFor="let item of mesCompetences">
           <img src="assets/{{item.pictoName}}">
         </div>
       </div>
       <div class="timeline-mobile competences-timeline-mobile"></div>
       <div fxLayout="column" fxLayoutGap="50px">
-        <div fxFlex="25%" fxLayoutAlign="start center" fxLayoutGap="20px"
-          *ngFor="let item of mesCompetences">
+        <div fxFlex="25%" fxLayoutAlign="start center" fxLayoutGap="20px" *ngFor="let item of mesCompetences">
           <div class="horizontalTimelineMarker"></div>
           <div>
             <span>{{item.title}}</span>
