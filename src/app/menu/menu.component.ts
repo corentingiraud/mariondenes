@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { WindowScrolling } from "../_services/windows.service";
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +12,7 @@ export class MenuComponent implements OnInit {
   isActive: Boolean = false;
   fadeInState: string;
 
-  constructor(private media: ObservableMedia) {
+  constructor(private media: ObservableMedia, private windowsScrolling: WindowScrolling) {
   }
 
   ngOnInit() {
@@ -29,6 +30,11 @@ export class MenuComponent implements OnInit {
 
   toogle() {
     if (this.media.isActive('xs') || this.media.isActive('sm')) {
+      if (this.isActive) {
+        this.windowsScrolling.enable();
+      } else {
+        this.windowsScrolling.disable();
+      }
       this.isActive = !this.isActive;
     }
   }

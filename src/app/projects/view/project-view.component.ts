@@ -15,8 +15,6 @@ export class ProjectViewComponent implements OnInit {
   project$: Observable<Project>;
   project: Project;
 
-  images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
-
   constructor(afs: AngularFirestore, route: ActivatedRoute) {
     route.params.subscribe((params) => {
       this.projectDoc = afs.doc<Project>('/projects/' + params['id']);

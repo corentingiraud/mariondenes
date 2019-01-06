@@ -6,6 +6,7 @@ export class WindowScrolling {
   private styleTag: HTMLStyleElement;
 
   constructor() {
+    console.log('Yes');
     this.styleTag = this.buildStyleElement();
   }
 
@@ -20,8 +21,7 @@ export class WindowScrolling {
   private buildStyleElement(): HTMLStyleElement {
     const style = document.createElement('style');
 
-    style.type = 'text/css';
-    style.setAttribute( 'data-debug', 'Injected by WindowScrolling service.' );
+    style.setAttribute( 'data-debug', 'Injected by WindowScrolling service from angular.' );
     style.textContent = `
       body {
         overflow: hidden !important ;
