@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Project } from '../../_models/Project';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,9 +19,9 @@ export class ProjectsExplorerComponent implements OnInit {
 
   counter = 0;
 
-  constructor(afs: AngularFirestore, media: ObservableMedia,
+  constructor(afs: AngularFirestore, media: MediaObserver,
       private router: Router) {
-    media.subscribe((change: MediaChange) => {
+    media.media$.subscribe((change: MediaChange) => {
       if (change.mqAlias === 'xs' && this.projects) {
         if (this.projects.length % 2 !== 0) {
           this.projects.push(new Project);

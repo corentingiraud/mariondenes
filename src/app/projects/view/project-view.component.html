@@ -1,14 +1,15 @@
 <div *ngIf="project; else loading" fxLayout="column" fxLayoutGap="40px">
   <div fxLayout="column" fxLayoutAlign="start end">
     <h2 class="project-title">{{project.name}}</h2>
-    <span class="tags">#{{project.tags[0]}}</span>
+    <span *ngFor="let tag of project.tags" class="tags">#{{tag}}</span>
+    <button (click)="edit(project)">EDIT</button>
   </div>
   <div *ngFor="let contentPart of project.contentParts; let isLast=last"
     fxLayout="column" fxLayoutGap="20px">
-    <div fxLayout="column" fxLayoutGap="10px"
-      fxLayout.gt-sm="row-reverse" fxLayoutGap.gt-sm="20px" fxLayoutAlign.gt-sm="start center">
-      <div fxFlex="100%" fxFlex.gt-sm="40%" fxLayout="column">
-        <div fxLayoutAlign.lt-md="center">
+    <div fxLayout.lt-md="column" fxLayoutGap.lt-md="10px"
+      fxLayout="row-reverse" fxLayoutGap="20px" fxLayoutAlign="start center">
+      <div fxFlex="100%" fxLayout="column">
+        <div fxLayoutAlign.lt-md="center start">
           <h3 class="content-title">
             {{ contentPart.title }}
           </h3>
@@ -22,8 +23,8 @@
         </ng-template>
       </ngb-carousel>
     </div>
-    <div fxLayout="row" fxLayoutAlign.gt-sm="end" *ngIf="!isLast">
-      <div fxFlex="100%" fxFlex.gt-sm="40%" fxLayoutAlign="center">
+    <div fxLayout="row" fxLayoutAlign="end start" *ngIf="!isLast">
+      <div fxFlex="100%" fxFlex.gt-sm="40%" fxLayoutAlign="center start">
         <div>
           <span class="spacer">
             .<br>.<br>.<br>

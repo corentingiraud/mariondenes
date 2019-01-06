@@ -2,13 +2,13 @@
   [ngClass.gt-md]="{'standard-menu': true, 'standard-menu-gt-md': true}" fxLayout="row"
   fxLayout.lt-md="column" fxLayoutAlign="start center"
   fxLayoutAlign.lt-md="center center" fxLayoutGap.gt-sm="16px">
-  <div ngClass.lt-md="menu-item">
+  <div ngClass.lt-md="menu-item" ngClass.gt-sm="{'menu-item':false}">
     <a routerLink="/about-me" routerLinkActive="active" (click)="toogle()">À PROPOS</a>
   </div>
-  <div ngClass.lt-md="menu-item">
+  <div ngClass.lt-md="menu-item" ngClass.gt-sm="{'menu-item':false}">
     <a routerLink="/projects" routerLinkActive="active" (click)="toogle()">MES PROJETS</a>
   </div>
-  <div ngClass.lt-md="menu-item">
+  <div ngClass.lt-md="menu-item" ngClass.gt-sm="{'menu-item':false}">
     <a routerLink="/contact" routerLinkActive="active" (click)="toogle()">CONTACT</a>
   </div>
 </div>

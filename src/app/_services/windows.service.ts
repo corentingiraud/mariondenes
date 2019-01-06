@@ -6,7 +6,6 @@ export class WindowScrolling {
   private styleTag: HTMLStyleElement;
 
   constructor() {
-    console.log('Yes');
     this.styleTag = this.buildStyleElement();
   }
 

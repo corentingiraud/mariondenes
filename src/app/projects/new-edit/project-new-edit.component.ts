@@ -49,7 +49,7 @@ export class ProjectNewEditComponent implements OnInit {
     const project = new Project({
       name: this.projectForm.value.name,
       mainPictureURL: this.projectForm.value.mainPictureURL,
-      tags: this.projectForm.value.tags.split(','),
+      tags: this.projectForm.value.tags.split(',').forEach(_ => _.trim()),
       contentParts: this.projectForm.value.contentParts.map(val => {
         return {
           title: val.title,
