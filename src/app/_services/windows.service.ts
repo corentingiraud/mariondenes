@@ -22,8 +22,10 @@ export class WindowScrolling {
 
     style.setAttribute( 'data-debug', 'Injected by WindowScrolling service from angular.' );
     style.textContent = `
-      body {
-        overflow: hidden !important ;
+      html, body {
+        overflow: hidden !important;
+        position: relative;
+        height: 100%;
       }
     `;
     return( style );
