@@ -32,6 +32,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { AuthService } from './_services/auth.service';
 import { AuthGuard } from './_guards/auth.guard';
+import { FABComponent } from './fab/fab.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { AuthGuard } from './_guards/auth.guard';
     LoginComponent,
     AdminDashboardComponent,
     ContactsListComponent,
+    FABComponent,
   ],
   imports: [
     BrowserModule,

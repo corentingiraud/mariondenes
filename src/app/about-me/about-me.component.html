@@ -1,4 +1,27 @@
 <div fxLayout="column" fxLayoutGap="40px">
+  <!-- TODO -->
+  <!-- <div>
+    <u>TODO @marion</u><br />
+    J'ai besoin de trois fichiers de specifications au format PDF:
+    <ul>
+      <li>Mobile (largeur=480px)</li>
+      <li>Tablet (largeur=840px)</li>
+      <li>Desktop (largeur=1600px)</li>
+    </ul>
+    J'ai besoin des fichiers images au format PNG:
+    <ul>
+      <li>Tableau des pratiques avortées et accomplises</li>
+      <li>Tableau de mon parcours</li>
+      <li>Photo accompagnant le service civique</li>
+      <li>Photo accompagnant le stage chez Bon Caillou</li>
+      <li>Photo accompagnant l'année de césure canadienne</li>
+      <li>Tableau de mes compétences</li>
+    </ul>
+    Autres questions:
+    <ul>
+      <li>Comment intégrer</li>
+    </ul>
+  </div> -->
 
   <!-- TILTE -->
   <div fxLayout="row" fxLayoutAlign="end">
@@ -157,8 +180,8 @@
       </h1>
     </div>
 
-  <!-- DESKTOP -->
-  <div [ngClass.lt-md]="{'hidden':true}" fxLayout="column" fxLayoutGap="20px">
+    <!-- DESKTOP -->
+    <div [ngClass.lt-md]="{'hidden':true}" fxLayout="column" fxLayoutGap="20px">
       <div fxLayout="row">
         <div fxFlex="25%" fxLayoutAlign="center center" *ngFor="let item of mesCompetences">
           <img src="assets/{{item.pictoName}}">
@@ -174,8 +197,8 @@
       </div>
     </div>
 
-  <!-- MOBILE -->
-  <div fxLayout="row" fxLayoutAlign="center" [ngClass.gt-sm]="{'hidden':true}">
+    <!-- MOBILE -->
+    <div fxLayout="row" fxLayoutAlign="center" [ngClass.gt-sm]="{'hidden':true}">
       <div fxLayout="column" fxLayoutGap="50px">
         <div fxFlex="25%" *ngFor="let item of mesCompetences">
           <img src="assets/{{item.pictoName}}">
